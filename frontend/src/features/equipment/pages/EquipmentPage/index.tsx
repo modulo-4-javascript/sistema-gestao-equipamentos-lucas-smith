@@ -17,6 +17,7 @@ import {
 } from '../../mocks/equipment.mock'
 import type { Equipment, EquipmentStatus, EquipmentType } from '../../types/equipment'
 import { Container } from './styles'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export function EquipmentPage() {
   const [messageApi, contextHolder] = message.useMessage()
@@ -31,11 +32,17 @@ export function EquipmentPage() {
   const [equipmentInStatus, setEquipmentInStatus] = useState<Equipment>()
   const [equipmentToRemove, setEquipmentToRemove] = useState<Equipment>()
 
+  const navigate = useNavigate();
+
   function handleCreateEquipment() {
     setFormMode('create')
     setEquipmentInForm(undefined)
     setIsFormModalOpen(true)
   }
+
+  function handleViewEquipment(equipment: Equipment) {
+  navigate(`/equipment/${equipment.id}`)
+}
 
   function handleEditEquipment(equipment: Equipment) {
     setFormMode('edit')
@@ -109,6 +116,7 @@ export function EquipmentPage() {
           onChangeStatusEquipment={setEquipmentInStatus}
           onEditEquipment={handleEditEquipment}
           onRemoveEquipment={setEquipmentToRemove}
+          onViewEquipment={handleViewEquipment}
         />
 
         <EquipmentFormModal

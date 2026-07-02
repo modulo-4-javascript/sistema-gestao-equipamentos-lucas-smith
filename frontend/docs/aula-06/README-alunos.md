@@ -856,9 +856,13 @@ Antes de considerar a aula concluída, confira:
 Se terminar antes, tente responder:
 
 1. Qual componente renderiza o cabeçalho da tela?
+<DetailsHeader>
 2. Qual função busca o equipamento no mock?
+findEquipmentDetailById
 3. Qual hook lê o ID da URL?
+UseParams
 4. Qual hook faz a navegação?
+UseNavigate
 5. Qual endpoint substituirá o mock na próxima aula?
 
 As respostas esperadas são:
